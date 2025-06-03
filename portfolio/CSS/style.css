@@ -1,0 +1,301 @@
+/* 基本設定 */
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans", Meiryo, sans-serif;
+  line-height: 1.7;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4; /* 背景を薄いグレーに */
+  color: #333; /* 基本の文字色を濃いグレー（黒に近い）に */
+  font-size: 16px;
+}
+
+/* コンテナ設定 */
+.container {
+  /* HTML側で<header>内の<div>と<div class="main-container">内の<div>の両方に適用されます */
+  width: 85%;
+  max-width: 960px; /* 最大幅を設定 */
+  margin: auto;
+  overflow: hidden; /* float解除のため */
+  padding: 0 20px; /* 左右に余白 */
+}
+
+/* ヘッダー */
+header {
+  background: #333; /* ヘッダー背景を濃いグレー（黒に近い）に */
+  color: #fff; /* ヘッダー文字色を白に */
+  padding: 1.5rem 0;
+  border-bottom: 3px solid #555; /* ヘッダー下部に少し明るいグレーのボーダー */
+  position: sticky; /* ヘッダーを画面上部に固定 */
+  top: 0;
+  z-index: 1000; /* 他の要素より手前に表示 */
+}
+
+header .container {
+  /* ヘッダー内のコンテナ専用のパディング調整（もし必要なら） */
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+header h1 {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+/* ナビゲーション */
+nav ul {
+  padding: 0;
+  list-style: none;
+  text-align: center;
+  margin-top: 10px;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 25px;
+}
+
+nav ul li:last-child {
+  margin-right: 0;
+}
+
+nav a {
+  color: #fff; /* ナビゲーションリンク文字色を白に */
+  text-decoration: none;
+  font-size: 1.1rem;
+  padding-bottom: 5px;
+  transition: color 0.3s ease, border-bottom-color 0.3s ease; /* トランジションの追加 */
+}
+
+nav a:hover,
+nav a:focus {
+  /* フォーカス時にもスタイルを適用 */
+  color: #bbb; /* ホバー時に少し薄い白（グレー）に */
+  border-bottom: 2px solid #bbb;
+  outline: none; /* フォーカスリングを消す場合（アクセシビリティに注意） */
+}
+
+/* スムーズスクロールのための設定 (HTMLタグに適用) */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ヒーローセクション */
+.hero {
+  background: #e9e9e9; /* ヒーローセクション背景を中間的なグレーに */
+  color: #333;
+  padding: 80px 20px; /* ヘッダー固定分を考慮して少し多めにパディング */
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  margin-top: 0; /* headerがstickyなので不要なら削除 */
+}
+
+.hero h2 {
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* メインコンテンツエリアのコンテナ (ヒーローセクション以外) */
+/* HTML側で <div class="container"> を <div class="main-container"> の内側に追加しました */
+/* もし main-container を使わない場合は、 .container の padding-top を調整してください */
+.container section:first-child {
+  /* 各セクションの最初のもののマージントップ調整 */
+  margin-top: 20px; /* ヒーローセクションとの間隔 */
+}
+
+/* セクション共通設定 */
+section {
+  background-color: #fff; /* 各セクションの背景を白に */
+  padding: 40px 25px; /* パディングを少し増やす */
+  margin-bottom: 25px; /* セクション間のマージンを少し増やす */
+  border-radius: 8px; /* 角丸を少し大きく */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08); /* 影を少し濃く、広げる */
+}
+
+section:target {
+  /* ページ内リンクで飛んできたセクションのハイライト（任意） */
+  /* outline: 2px solid #555; */ /* 例 */
+  padding-top: 90px; /* ヘッダーの高さ分オフセット */
+  margin-top: -70px; /* ヘッダーの高さ分オフセット */
+}
+
+section h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 30px; /* 見出し下のマージンを増やす */
+  padding-bottom: 15px; /* パディングを増やす */
+  border-bottom: 2px solid #eee; /* 見出しの下に薄い区切り線 */
+}
+
+section h3 {
+  font-size: 1.6rem; /* 少し大きく */
+  color: #444;
+  margin-top: 25px; /* 上マージン追加 */
+  margin-bottom: 15px;
+}
+
+section h4 {
+  font-size: 1.3rem; /* 少し大きく */
+  color: #555;
+  margin-top: 20px; /* 上マージン追加 */
+  margin-bottom: 10px;
+}
+
+/* 制作実績 (Works / Projects) */
+#works .project-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 20px auto; /* 上下左右中央揃え */
+  border: 1px solid #ddd; /* 画像に薄いボーダー */
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+#works ul {
+  padding-left: 20px; /* リストの左側に余白 */
+}
+
+#works ul li {
+  margin-bottom: 10px; /* 少し間隔をあける */
+}
+
+/* スキル (Skills) */
+.skills-list {
+  list-style: none;
+  padding: 0;
+}
+
+.skills-list > li {
+  margin-bottom: 20px; /* 間隔をあける */
+  padding-bottom: 15px;
+  border-bottom: 1px dotted #eee; /* スキルカテゴリごとの区切り線 */
+}
+.skills-list > li:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.skills-list strong {
+  font-size: 1.2rem; /* 少し大きく */
+  color: #333;
+  display: block;
+  margin-bottom: 8px; /* 間隔をあける */
+}
+
+.skills-list ul {
+  list-style: disc; /* 通常のリストマーカー */
+  padding-left: 25px;
+  margin-top: 8px;
+}
+
+.skills-list ul li {
+  margin-bottom: 8px; /* 間隔をあける */
+  color: #555; /* スキル項目を少し薄い色に */
+}
+
+/* 自己紹介 (About Me) */
+.profile-image {
+  max-width: 180px; /* プロフィール画像の最大幅 */
+  height: auto;
+  display: block;
+  margin: 0 auto 25px auto; /* 中央揃えと下に余白 */
+  border-radius: 50%; /* 円形に */
+  border: 4px solid #eee; /* ボーダーを少し太く */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* お問い合わせ (Contact) */
+#contact ul {
+  list-style: none;
+  padding: 0;
+}
+
+#contact ul li {
+  margin-bottom: 12px; /* 間隔をあける */
+  font-size: 1.1rem;
+}
+
+#contact ul li strong {
+  margin-right: 10px; /* 少し間隔をあける */
+}
+
+/* リンクスタイル */
+a {
+  color: #2a2a2a; /* リンク色を少し濃く */
+  text-decoration: none; /* デフォルトの下線を消す */
+  font-weight: bold; /* 少し太字に */
+  transition: color 0.3s ease, background-color 0.3s ease; /* トランジション追加 */
+  padding: 2px 4px; /* 少しパディングを追加 */
+  border-radius: 3px; /* 角を丸く */
+}
+
+a:hover,
+a:focus {
+  color: #000; /* ホバー時に黒に */
+  background-color: #efefef; /* ホバー時に背景色を薄くつける */
+  outline: none; /* フォーカスリングを消す場合（アクセシビリティに注意） */
+}
+
+/* フッター */
+footer {
+  text-align: center;
+  padding: 30px; /* パディングを少し増やす */
+  background: #333; /* フッター背景を濃いグレー（黒に近い）に */
+  color: #fff; /* フッター文字色を白に */
+  margin-top: 40px; /* 上マージンを増やす */
+}
+
+/* レスポンシブ対応（簡易的） */
+@media (max-width: 768px) {
+  header {
+    position: static; /* スマートフォンではヘッダー固定を解除 */
+  }
+  header h1 {
+    font-size: 2rem;
+  }
+  nav ul li {
+    display: block; /* スマートフォンではナビゲーションを縦積みに */
+    margin: 12px 0;
+  }
+  .container {
+    width: 90%; /* スマートフォンでは幅を少し広げる */
+    padding: 0 15px;
+  }
+
+  .hero {
+    padding: 40px 15px; /* スマートフォンでのパディング調整 */
+  }
+  .hero h2 {
+    font-size: 1.9rem;
+  }
+
+  section {
+    padding: 25px 15px; /* セクションのパディング調整 */
+  }
+  section h2 {
+    font-size: 1.8rem;
+  }
+  section h3 {
+    font-size: 1.4rem;
+  }
+  section h4 {
+    font-size: 1.15rem;
+  }
+  /* ターゲットセクションのオフセット調整 */
+  section:target {
+    padding-top: 25px;
+    margin-top: 0;
+  }
+}
